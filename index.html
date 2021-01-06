@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Requests</title>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/default.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+  <style>
+    .label {
+      font-weight: bold;
+    }
+
+    #data-form {
+      margin-bottom: 1em;
+    }
+
+    /* #response-text {
+      height: 50%;
+      overflow: scroll;
+      border-color: blue;
+      border-radius: 1px;
+      margin-top: 10px;
+
+    } */
+
+    #response-container {
+      margin-top: 1em;
+      padding: 10px;
+      border: 1px solid #007BFF;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container" id="title">
+    <h2>Welcome to requests app</h2>
+    <p id="app_detail">This is a simple application that will help you make HTTP requests from your browser. Keep in
+      mind that many non-API locations don't allow CORS so your request will fail.</p>
+  </div>
+  <div id="app" class="container">
+    <div id="dropdown" class="dropdown">
+      <button id="method-dropdown-button" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false">Select HTTP method</button>
+      <div class="dropdown-menu" aria-labelledby="method-dropdown-button" id="method-dropdown-menu">
+        <a class="dropdown-item" href="#">GET</a>
+        <a class="dropdown-item" href="#">POST</a>
+        <a class="dropdown-item" href="#">PUT</a>
+        <a class="dropdown-item" href="#">PATCH</a>
+        <a class="dropdown-item" href="#">DELETE</a>
+      </div>
+    </div>
+    <div id="url-form-div">
+      <form id="url-form" style="margin-top: 1em;">
+        <label for="url-form-input" class="label">URL</label>
+        <input type="url" id="url-form-input" placeholder="Enter URL (https://example.com)" class="form-control">
+      </form>
+    </div>
+    <div id="data-form-div">
+      <form id="data-form">
+        <label for="data-form-input" class="label">Data</label>
+        <input type="text" id="data-form-input" placeholder="Enter data in JSON format (optional)" class="form-control">
+      </form>
+    </div>
+    <button id="submit-form" class="btn btn-primary">Send</button>
+    <div id="response-container">
+      <pre><code id="response-text" class="json">Response will appear here</code></pre>
+    </div>
+  </div>
+  <script src="requests.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>
